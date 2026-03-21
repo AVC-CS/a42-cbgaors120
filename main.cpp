@@ -28,16 +28,50 @@ int main()
     const double RATE20 = 4.80;
     double weight, distance, dRate, price;
 
-    cout << "Enter the package weight and distance\n";
+    cout << "Enter the package weight and distance.\n";
     cin >> weight >> distance;
 
     // TODO: validate input - weight must be > 0 and <= 20
+    if ( !(weight > 0 || weight < 20) ){
+        //cout << "Cannot ship package less than 0kg or higher than 20kg." << endl;
+        return 1;
+    }
 
     // TODO: validate input - distance must be >= 10 and <= 3000
+    if ( !(distance > 10 || distance < 3000) ){
+        cout << "Distance is not within the limits of our policy." << endl;
+        return 1;
+    }
+
 
     // TODO: determine rate based on weight
+    if (weight <= 2){
+        dRate = RATE2;
+    }
+
+    else if (weight <= 6){   
+        dRate = RATE6;
+    }
+    
+    else if (weight <= 10){
+        dRate = RATE10;
+    }
+
+    else if (weight <= 20){
+        dRate = RATE20;
+    }
+                
+            
+    //cout << "current rate is: " << dRate << endl;
+    
 
     // TODO: calculate price based on distance
+    if (distance > 500){
+    price = (distance / 500.0) * dRate;
+    }
+    else{
+        price = dRate;
+    }
 
     // Use the following statements to print output
     cout << setprecision(2) << fixed;
