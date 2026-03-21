@@ -32,13 +32,13 @@ int main()
     cin >> weight >> distance;
 
     // TODO: validate input - weight must be > 0 and <= 20
-    if ( !(weight > 0 || weight < 20) ){
-        //cout << "Cannot ship package less than 0kg or higher than 20kg." << endl;
+    if ( !(weight > 0) || !(weight < 20) ){
+        cout << "Cannot ship package less than 0kg or higher than 20kg." << endl;
         return 1;
     }
 
     // TODO: validate input - distance must be >= 10 and <= 3000
-    if ( !(distance > 10 || distance < 3000) ){
+    if ( !(distance > 10) || !(distance < 3000) ){
         cout << "Distance is not within the limits of our policy." << endl;
         return 1;
     }
@@ -75,7 +75,7 @@ int main()
 
     // Use the following statements to print output
     cout << setprecision(2) << fixed;
-    cout << "The shipping price for package is " << price << endl;
+    cout << "The shipping price for package is " << price << " with rate " << dRate << endl;
 
     return 0;
 }
